@@ -313,10 +313,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1906895120}
+  - 114: {fileID: 1906895121}
   m_Layer: 0
   m_Name: UnitMgr
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 266726316, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -332,6 +333,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1906895121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906895119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d6ca2c2cd564ba3ac94780c268d2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aUnitNum: 20
+  aGridRightTop: {fileID: 1406618935}
+  aGridLeftBottom: {fileID: 702169262}
+  aGridCenter: {fileID: 773766331}
+  mGridLength: 0
 --- !u!1 &2078530214
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,8 +445,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d465d743563545f6a295a69bda2e518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aUnitNum: 10
-  mUnitMng: {fileID: 1906895119}
-  mGridCenter: {fileID: 773766331}
-  mGridRightTop: {fileID: 1406618935}
-  mGridLeftBottom: {fileID: 702169262}
+  aUnitMng: {fileID: 1906895121}

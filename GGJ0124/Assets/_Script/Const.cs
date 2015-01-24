@@ -7,7 +7,6 @@ public class Const {
 	public static string USER_MEET = "usermeet";
 	public static string USER_MOVE = "usermove";
 
-
 	public static int UP 	= 0;
 	public static int DOWN 	= 1;
 	public static int RIGHT = 2;
@@ -18,5 +17,4 @@ public class Const {
 
 	public static int COL = 4;
 	public static int ROW = 7;
-
 }

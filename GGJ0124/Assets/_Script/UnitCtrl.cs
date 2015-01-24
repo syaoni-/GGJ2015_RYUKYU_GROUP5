@@ -3,7 +3,6 @@ using System.Collections;
 
 public class UnitCtrl : MonoBehaviour {
 
-
 	public int aFirstGridNum;
 
 	[SerializeField]
@@ -42,7 +41,7 @@ public class UnitCtrl : MonoBehaviour {
 		}
 	}
 
-	public void InitUnit(int iInitGrid){
+	private void InitUnit(int iInitGrid){
 		this.mUnitState = Const.USER_WAIT;
 		this.mCurrentGridNum = iInitGrid;
 		this.mTimeCounter = 0f;
