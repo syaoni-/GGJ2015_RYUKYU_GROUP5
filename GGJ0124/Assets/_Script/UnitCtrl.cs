@@ -19,6 +19,7 @@ public class UnitCtrl : MonoBehaviour {
 	private float mMeetTime = 3.0f;
 	[SerializeField]
 	private int mDirection;
+
 	[SerializeField]
 	private float mMoveSpeed;
 
@@ -30,6 +31,7 @@ public class UnitCtrl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (this.mUnitState == Const.USER_MEET) {
 			if (this.mTimeCounter < this.mMeetTime) {
 				this.mTimeCounter += Time.deltaTime;
