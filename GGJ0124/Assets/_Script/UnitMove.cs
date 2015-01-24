@@ -29,25 +29,25 @@ public class UnitMove : MonoBehaviour {
 		offsetPos = gridLength / 10;
 	}
 
-	public void move(MOVE_DIRECTION currentDirection){
+	public void move(int currentDirection){
 
 		float moveX = 0.0f;
 		float moveY = 0.0f;
 
 		switch (currentDirection) {
-			case MOVE_DIRECTION.UP:
+			case 0:
 				moveY = gridLength;
 				localOrigin.y += gridLength;
 				break;
-			case MOVE_DIRECTION.DOWN:
+			case 1:
 				moveY = -gridLength;
 				localOrigin.y -= gridLength;
 				break;
-			case MOVE_DIRECTION.RIGHT:
+			case 2:
 				moveX = gridLength;
 				localOrigin.x += gridLength;
 				break;
-			case MOVE_DIRECTION.LEFT:
+			case 3:
 				moveX = -gridLength;
 				localOrigin.x -= gridLength;
 				break;
