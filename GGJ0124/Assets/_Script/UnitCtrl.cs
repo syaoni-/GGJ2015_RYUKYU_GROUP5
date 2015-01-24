@@ -8,6 +8,8 @@ public class UnitCtrl : MonoBehaviour {
 	public int aWaitDirection;
 	[SerializeField]
 	private float mWaitDirectionInterval = 0.5f;
+	private float mMinWaitInterval = 0.5f;
+	private float mMaxWaitInterval = 1.0f;
 
 	[SerializeField]
 	private string mUnitState;
@@ -42,6 +44,7 @@ public class UnitCtrl : MonoBehaviour {
 				mTimeCounter += Time.deltaTime;
 			} else {
 				aWaitDirection = Random.Range(Const.UP, Const.LEFT);
+				mWaitDirectionInterval = Random.Range(Const.MEET_FAST, Const.MEET_LATE);
 			}
 		}
 

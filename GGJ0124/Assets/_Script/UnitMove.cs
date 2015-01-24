@@ -24,6 +24,7 @@ public class UnitMove : MonoBehaviour {
 		//gridLength = Const.GRID_LENGTH;
 		gridLength = this.gameObject.transform.parent.GetComponent<UnitMgr>().mGridLength;
 		offsetPos = gridLength / 10;
+		localOrigin = this.gameObject.transform.parent.GetComponent<UnitMgr>().aGridCenter.position;
 	}
 
 	public void move(int currentDirection){
@@ -55,7 +56,6 @@ public class UnitMove : MonoBehaviour {
 		float maxMoveX = (this.gridLength/2 - this.localOrigin.x + this.transform.position.x) - this.offsetPos;
 		float minMoveY = -(this.gridLength/2 + this.localOrigin.y - this.transform.position.y) + this.offsetPos;
 		float maxMoveY = (this.gridLength/2 - this.localOrigin.y + this.transform.position.y) - this.offsetPos;
-
 
 		moveX += Random.Range(minMoveX, maxMoveX);
 		moveY += Random.Range(minMoveY, maxMoveY);

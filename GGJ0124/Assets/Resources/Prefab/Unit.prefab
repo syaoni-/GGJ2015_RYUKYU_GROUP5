@@ -41,7 +41,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73523c1c513048bab78476d305f88b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localOrigin: {x: 0, y: 0}
 --- !u!114 &11454590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,13 +52,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41b35d16cb2c475f89fa296682f1b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aFirstGridNum: 0
   mUnitState: userwait
-  mCurrentGridNum: 0
+  aFirstGridNum: 0
+  mDirection: {x: 0, y: 0}
   mTimeCounter: 0
-  mMeetTime: 0
-  mDirection: 0
   mMoveSpeed: 0
+  mMoveTime: 0
+  mMeetTime: 0
 --- !u!212 &21254590
 SpriteRenderer:
   m_ObjectHideFlags: 1

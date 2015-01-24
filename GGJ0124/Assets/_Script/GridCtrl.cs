@@ -3,8 +3,6 @@ using System.Collections;
 
 public class GridCtrl : MonoBehaviour {
 
-	public Vector2 originPos;
-
 	private enum GRUID_STATES{
 		NONE,
 		NORMAL,
