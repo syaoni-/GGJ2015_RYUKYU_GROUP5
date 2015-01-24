@@ -5,6 +5,10 @@ public class UnitCtrl : MonoBehaviour {
 
 	public int aFirstGridNum;
 
+	public int aWaitDirection;
+	[SerializeField]
+	private float mWaitDirectionInterval = 0.5f;
+
 	[SerializeField]
 	private string mUnitState;
 
@@ -26,10 +30,20 @@ public class UnitCtrl : MonoBehaviour {
 	void Start () {
 		this.mTimeCounter = 0f;
 		this.InitUnit(aFirstGridNum);
+
+		aWaitDirection = Random.Range(Const.UP, Const.LEFT);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (this.mUnitState == Const.USER_WAIT) {
+			if (this.mTimeCounter < this.mWaitDirectionInterval) {
+				mTimeCounter += Time.deltaTime;
+			} else {
+				aWaitDirection = Random.Range(Const.UP, Const.LEFT);
+			}
+		}
 
 		if (this.mUnitState == Const.USER_MEET) {
 			if (this.mTimeCounter < this.mMeetTime) {
