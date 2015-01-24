@@ -38,10 +38,10 @@ public class InputCtrl : MonoBehaviour {
 		}
 	}
 
-	void UnitMng(string iDirection){
+	void UnitMng(int iDirection){
 		Transform aUnitMngTrans = this.mUnitMng.transform;
 		foreach(Transform child in aUnitMngTrans) {
-			child.gameObject.GetComponent<UnitCtrl>().ActUnit(iDirection);
+			child.gameObject.GetComponent<UnitCtrl>().ActUnit(1.0f,iDirection);
 		}
 	}
 

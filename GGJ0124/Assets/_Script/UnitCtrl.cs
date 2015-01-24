@@ -2,25 +2,29 @@
 using System.Collections;
 
 public class UnitCtrl : MonoBehaviour {
-	public string mUnitState;
+
 
 	public int aFirstGridNum;
 
 	[SerializeField]
-	private Vector2 mDirection;
+	private string mUnitState;
 
 	[SerializeField]
+	private int mCurrentGridNum;
+	
+	[SerializeField]
 	private float mTimeCounter;
+
+	[SerializeField]
+	private float mMeetTime = 3.0f;
+	[SerializeField]
+	private int mDirection;
 	[SerializeField]
 	private float mMoveSpeed;
 
-	[SerializeField]
-	private float mMoveTime = 3.0f;
-	[SerializeField]
-	private float mMeetTime = 3.0f;
-
 	// Use this for initialization
 	void Start () {
+		this.mTimeCounter = 0f;
 		this.InitUnit(aFirstGridNum);
 	}
 	
@@ -31,47 +35,52 @@ public class UnitCtrl : MonoBehaviour {
 				this.mTimeCounter += Time.deltaTime;
 			}else{
 				this.mTimeCounter = 0f;
-//				this.GetComponent<UnitMove>.move(this.mDirection);
+				this.ActMove();
 			}
 		}
 	}
 
 	public void InitUnit(int iInitGrid){
 		this.mUnitState = Const.USER_WAIT;
+		this.mCurrentGridNum = iInitGrid;
 		this.mTimeCounter = 0f;
 	}
 
-
 	#region ChangeState
-	public void ActWait(int iGridNum){
+	public void ActWait(){
 		this.mUnitState = Const.USER_WAIT;
+		this.mTimeCounter = 0f;
 	}
 
-	public void ActMeet(int iGridNum){
+	public void ActMeet(){
 		this.mUnitState = Const.USER_MEET;
+		this.mTimeCounter = 0f;
 	}
-	
-	public void ActMove(int iGridNum){
+
+	public void ActMove(){
+//		this.GetComponent<UnitMove>().move(mDirection);
 		this.mUnitState = Const.USER_MOVE;
+		this.mTimeCounter = 0f;
 	}
 	#endregion
-
-
-	public void ActUnit(string iDirection){
+	
+	public void ActUnit(float iMeetTime, int iDirection){
 		Debug.Log (iDirection);
 		if (this.mUnitState == Const.USER_WAIT) {
-
-			this.ActMeet(0);
+			this.mMeetTime	= iMeetTime;
+			this.mDirection = iDirection;
+			this.ActMeet();
 		}
 	}
 
+	#region KillUnit
 	public void Destroy(){
 		//DestroyAnimation
 		StartCoroutine ("DestroyAnim");
 	}
-
 	private IEnumerator DestroyAnim(){
 		Destroy (this.gameObject);
 		yield return new WaitForSeconds(0.1f);
 	}
+	#endregion
 }
