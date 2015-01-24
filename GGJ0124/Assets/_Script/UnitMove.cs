@@ -34,25 +34,6 @@ public class UnitMove : MonoBehaviour {
 		float moveX = 0.0f;
 		float moveY = 0.0f;
 
-//		switch (currentDirection) {
-//			case 0:
-//				moveY = gridLength;
-//				localOrigin.y += gridLength;
-//				break;
-//			case 1:
-//				moveY = -gridLength;
-//				localOrigin.y -= gridLength;
-//				break;
-//			case 2:
-//				moveX = gridLength;
-//				localOrigin.x += gridLength;
-//				break;
-//			case 3:
-//				moveX = -gridLength;
-//				localOrigin.x -= gridLength;
-//				break;
-//		}
-
 		do {
 			if (currentDirection == Const.UP) {
 				moveY = gridLength;
