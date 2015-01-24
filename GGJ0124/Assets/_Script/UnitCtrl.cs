@@ -58,9 +58,10 @@ public class UnitCtrl : MonoBehaviour {
 	}
 
 	public void ActMove(){
-//		this.GetComponent<UnitMove>().move(mDirection);
+		this.GetComponent<UnitMove>().move(mDirection);
 		this.mUnitState = Const.USER_MOVE;
 		this.mTimeCounter = 0f;
+		Debug.Log ("move start");
 	}
 	#endregion
 	
