@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class UnitMove : MonoBehaviour {
 
 	private float gridLength;
 
@@ -31,8 +31,8 @@ public class NewBehaviourScript : MonoBehaviour {
 
 	public void move(MOVE_DIRECTION currentDirection){
 
-		float moveX;
-		float moveY;
+		float moveX = 0.0f;
+		float moveY = 0.0f;
 
 		switch (currentDirection) {
 			case MOVE_DIRECTION.UP:
@@ -71,7 +71,7 @@ public class NewBehaviourScript : MonoBehaviour {
 	private IEnumerator moveCorutine(){
 
 		for (float time = 0.0f; time < moveTime;time += Time.deltaTime) {
-			this.transform.position += Vector2(dx,dy);
+			this.transform.Translate(dx, dy, 0);
 			yield return null;
 		}
 
