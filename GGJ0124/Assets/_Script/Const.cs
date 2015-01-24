@@ -11,7 +11,14 @@ public class Const {
 	public static int RIGHT = 2;
 	public static int LEFT 	= 3;
 
-	public static float GRID_LENGTH = 1.0f;
 	public static float CHARA_OFSET = 0.0f;
 
+	public static float MEET_FAST = 0.5f;
+	public static float MEET_LATE = 1.5f;
+
+
+	public struct MyStruct
+	{
+		public static int test;
+	}
 }

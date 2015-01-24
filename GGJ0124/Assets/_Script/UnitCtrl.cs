@@ -3,7 +3,6 @@ using System.Collections;
 
 public class UnitCtrl : MonoBehaviour {
 
-
 	public int aFirstGridNum;
 
 	[SerializeField]
@@ -40,7 +39,7 @@ public class UnitCtrl : MonoBehaviour {
 		}
 	}
 
-	public void InitUnit(int iInitGrid){
+	private void InitUnit(int iInitGrid){
 		this.mUnitState = Const.USER_WAIT;
 		this.mCurrentGridNum = iInitGrid;
 		this.mTimeCounter = 0f;
@@ -58,7 +57,8 @@ public class UnitCtrl : MonoBehaviour {
 	}
 
 	public void ActMove(){
-//		this.GetComponent<UnitMove>().move(mDirection);
+		this.GetComponent<UnitMove>().move(mDirection);
+		Debug.Log("ActMove");
 		this.mUnitState = Const.USER_MOVE;
 		this.mTimeCounter = 0f;
 	}
