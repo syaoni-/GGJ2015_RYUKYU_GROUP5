@@ -14,6 +14,7 @@ public class NewBehaviourScript : MonoBehaviour {
 	private float maxLeftDis;
 
 	private float dx,dy;
+	private float offsetPos;
 
 	public enum MOVE_DIRECTION{
 		UP,
@@ -24,10 +25,11 @@ public class NewBehaviourScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		//gridLength = ?
+		offsetPos = gridLength / 10;
 	}
 
-	void move(MOVE_DIRECTION currentDirection){
+	public void move(MOVE_DIRECTION currentDirection){
 
 		float moveX;
 		float moveY;
@@ -47,17 +49,17 @@ public class NewBehaviourScript : MonoBehaviour {
 				break;
 			case MOVE_DIRECTION.LEFT:
 				moveX = -gridLength;
-				localOrigin -= gridLength;
+				localOrigin.x -= gridLength;
 				break;
 		}
 
-		float minMoveX = -gridLength + (localOrigin - this.transform.position.x );
-		float maxMoveX = gridLength + (localOrigin - this.transform.position.x);
-		float minMoveY = -gridLength + (localOrigin - this.transform.position.y);
-		float maxMoveY = gridLength + (localOrigin - this.transform.position.y);
+		float minMoveX = -this.gridLength + this.localOrigin.x - this.transform.position.x + this.offsetPos;
+		float maxMoveX = this.gridLength + this.localOrigin.x - this.transform.position.x - this.offsetPos;
+		float minMoveY = -this.gridLength + this.localOrigin.y - this.transform.position.y + this.offsetPos;
+		float maxMoveY = this.gridLength + this.localOrigin.y - this.transform.position.y - this.offsetPos;
 
 		moveX += Random.Range(minMoveX, maxMoveX);
-		moveY += Random.Range (minMoveY, maxMoveY);
+		moveY += Random.Range(minMoveY, maxMoveY);
 
 		dx = -moveX / moveTime;
 		dy = -moveY / moveTime;
@@ -69,10 +71,9 @@ public class NewBehaviourScript : MonoBehaviour {
 	private IEnumerator moveCorutine(){
 
 		for (float time = 0.0f; time < moveTime;time += Time.deltaTime) {
-			this.transform.position.x += dx;
-			this.transform.position.y += dy;
+			this.transform.position += Vector2(dx,dy);
 			yield return null;
-		} 
+		}
 
 	}
 }
